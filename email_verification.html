@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter email:<input type="email" id="userinput">
+    <button onclick="submitresponser()">submit</button>
+    <p id="hey"></p>
+    <script>
+        function submitresponser(){
+            let a=document.getElementById("userinput").value;
+            let sanjay="@";
+            if(a.includes(sanjay)){
+
+            }
+            else{
+                let hey=document.getElementById("hey").innerHTML="we cannot submit becuase @ is not found";
+                return
+            }
+
+            
+            if(a[0]=="@"){
+                // console.log("not valid");
+                let hey=document.getElementById("hey").innerHTML="we cannot submit as @ is at invalid space";
+                return;
+
+            }
+            for(let i=1;i<a.length;i++){
+                if(a[i]=="@"){
+                    let b="@gmail.com";
+                    let dharati=0;
+                    let trimmedvalue=a.substring(i);
+                    if(trimmedvalue.length!=b.length){
+                        let hey=document.getElementById("hey").innerHTML="we cannot submit as the email is invalid";
+                        break
+                    }                    
+                    for(let j=i;j<a.length;j++){
+                        if(a[j]==b[dharati]){
+                            dharati=dharati+1;
+                        }
+                        else{
+                            let hey=document.getElementById("hey").innerHTML="check the email . seems like a spelling mistake";
+
+                            return false
+                        }
+                        
+                        let hey=document.getElementById("hey").innerHTML="submitted";
+                    }
+                }
+            }
+    }
+    </script>
+</body>
+</html>
